@@ -19,8 +19,8 @@
 (defn production-rate-alt
   [speed]
   (cond
-    (== speed 0) 0
-    (and (>= speed 1) (< speed 5)) (* 221 speed)
+    (== speed 0) 0.0
+    (and (>= speed 1) (< speed 5)) (* 221.0 speed)
     (and (>= speed 5) (< speed 9)) (* 0.9 (* 221 speed))
     (and (>= speed 9) (< speed 10)) (* 0.8 (* 221 speed))
     (and (>= speed 10) (< speed 11)) (* 0.77 (* 221 speed))
