@@ -35,4 +35,17 @@
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (println "Hello, World!"))
+  (def seq-1 ["A" "G" "T" "C"])
+  (def seq-2 ["A" "G" "G" "C"])
+  (def seq-1a ["A" "G" "T" "C"])
+  (def seq-3 ["A" "A" "Y" "C"])
+  (def seq-4 ["A" "G" "C"])
+  
+  (println (hamming seq-1 seq-1a))
+  (println (hamming seq-1 seq-2))
+  (println (hamming seq-1 seq-3))
+  (try
+    (println (hamming seq-1 seq-4))
+    (catch Exception e (println (str "error: " (.getMessage e))))
+    )
+  )
