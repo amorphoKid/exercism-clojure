@@ -6,7 +6,7 @@
   (= (count seq-1) (count seq-2))
   )
 
-(defn count-non-matching-pairs
+(defn count-non-matching-pairs_old
   [seq-pairs]
     (loop [n-matches 0
            pairs seq-pairs]
@@ -14,12 +14,22 @@
         n-matches
         (let [cur-pair (last pairs)
              remaining-pairs (pop pairs)]
-             (if (not (= (first cur-pair) (second cur-pair)))
+             (if (= (first cur-pair) (second cur-pair))
                (recur (inc n-matches) remaining-pairs)
                (recur n-matches remaining-pairs))
              ))
       )
     
+  )
+
+(defn non-matching-pair?
+  [pair]
+  (not (= (first pair) (second pair)))
+  )
+
+(defn count-non-matching-pairs
+  [seq-pairs]
+  (count (filter non-matching-pair? seq-pairs))
   )
 
 (defn hamming
